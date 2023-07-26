@@ -24,6 +24,23 @@ const submitClick = () => {
   if (validation) {
     document.getElementById("form-container").style.display = "none";
     document.getElementById("backButton").removeAttribute("hidden");
-    document.getElementById("floors").removeAttribute("hidden");
+    document.getElementById("main-box").removeAttribute("hidden");
+    createFloor(floorCount);
+  }
+};
+
+const backButtonClick = () => {
+  // document.getElementById("backButton").setAttribute("hidden", "hidden");
+  // document.getElementById("form-container").style.display = "flex";
+  window.location.reload();
+};
+
+const createFloor = (floorCount) => {
+  const numberOfFloors = document.getElementById("floors");
+  numberOfFloors.innerHTML = "";
+  for (let i = 0; i < floorCount; i++) {
+    const innerBox = document.createElement("div");
+    innerBox.className = "inner-box";
+    numberOfFloors.appendChild(innerBox);
   }
 };

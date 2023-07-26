@@ -80,3 +80,15 @@
     justify-content: center;
     margin-top: 40px;
   }
+
+  #main-box {
+    width: 97%;
+    height: 90%;
+    border: 4px solid black;
+    margin-top: 40px;
+  }
+  .inner-box {
+    height: 100px;
+    background-color: #007fff;
+    margin: 10px;
+  }
