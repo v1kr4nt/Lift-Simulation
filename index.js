@@ -25,7 +25,7 @@ const submitClick = () => {
     document.getElementById("form-container").style.display = "none";
     document.getElementById("backButton").removeAttribute("hidden");
     document.getElementById("main-box").removeAttribute("hidden");
-    createFloor(floorCount);
+    createFloor(floorCount, liftCount);
   }
 };
 
@@ -35,12 +35,29 @@ const backButtonClick = () => {
   window.location.reload();
 };
 
-const createFloor = (floorCount) => {
+const createFloor = (floorCount, liftCount) => {
   const numberOfFloors = document.getElementById("floors");
   numberOfFloors.innerHTML = "";
   for (let i = 0; i < floorCount; i++) {
     const innerBox = document.createElement("div");
     innerBox.className = "inner-box";
+    if (i === floorCount - 1) {
+      for (let j = 0; j < liftCount; j++) {
+        const innerInnerBox = document.createElement("div");
+        innerInnerBox.className = "inner-inner-box";
+        innerBox.appendChild(innerInnerBox);
+      }
+    }
     numberOfFloors.appendChild(innerBox);
+  }
+};
+
+const createLift = (liftCount) => {
+  const numOfLifts = document.getElementById("lifts");
+  numOfLifts.innerHTML = "";
+  for (let i = 0; i < liftCount; i++) {
+    const leftSide = document.createElement("div");
+    leftSide.className = "left-side";
+    numOfLifts.appendChild(leftSide);
   }
 };
